@@ -1,0 +1,60 @@
+{
+  "name": "wardrobe",
+  "description": "A wardrobe of React.js components for marcodaniels projects.",
+  "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "dev": "start-storybook -p 6006 -c storybook/config",
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testMatch": [
+      "**/__tests__/*.test.(ts|tsx)"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "<rootDir>/src/**",
+      "!<rootDir>/src/**.snap"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^4.1.1",
+    "@storybook/addon-viewport": "^4.1.1",
+    "@storybook/addons": "^4.1.1",
+    "@storybook/react": "^4.1.1",
+    "@types/enzyme": "^3.1.15",
+    "@types/jest": "^23.3.10",
+    "@types/react": "^16.7.17",
+    "@types/storybook__addon-knobs": "^3.4.1",
+    "@types/storybook__react": "^4.0.0",
+    "@types/styled-components": "^4.1.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "jest": "^23.6.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "styled-components": "^4.1.3",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
+}

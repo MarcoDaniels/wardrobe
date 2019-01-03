@@ -1,0 +1,11 @@
+.idea
+
+coverage/
+src/
+storybook/
+test/
+
+jest.setup.js
+tsconfig.json
+tslint.json
+yarn.lock
