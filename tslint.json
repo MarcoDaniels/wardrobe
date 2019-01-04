@@ -17,7 +17,7 @@
     "forin": true,
     "indent": [
       true,
-      "spaces"
+      "tabs"
     ],
     "interface-name": [
       true,
@@ -30,13 +30,13 @@
     "label-position": true,
     "max-line-length": [
       true,
-      320
+      120
     ],
     "no-any": false,
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
-      false,
+      true,
       "error",
       "debug",
       "info",
