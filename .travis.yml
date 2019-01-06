@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "10.7"
+notifications:
+  email: false
+script:
+  - echo "Deploying!"
+install:
+  - yarn
+  - yarn test
+after_success:
+  - echo "Deploy"
+
+# install dependencies
+
+# run tests
+
+# build storybook
+
+# deploy storybook to firebase/ghPages
+
+# deploy package to npm
