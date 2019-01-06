@@ -1,4 +1,4 @@
 # wardrobe
 
-> _A wardrobe of React.js components for [marcodaniels](https://marcodaniels.com)  projects._
+> _A wardrobe full of React.js components for [marcodaniels](https://marcodaniels.com)  projects._
 

@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean,  } from '@storybook/addon-knobs/react'
-import { Link } from '../../src'
-import { Button } from '../../src/components/Button'
+import { Link, Button } from '../../src'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -28,6 +27,6 @@ storiesOf('Components', module)
 			onClick={() => console.log('click')}
 			classes={text('classes', 'storybook')}
 		>
-			{text('content', 'this is a link')}
+			{text('content', 'click me')}
 		</Button>
 	))

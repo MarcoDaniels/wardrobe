@@ -8,6 +8,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "dev": "start-storybook -p 6006 -c storybook/config",
+    "build": "rm -rf build/ && build-storybook -c storybook/config -o build/",
     "test": "jest"
   },
   "jest": {
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@storybook/addon-knobs": "^4.1.1",
+    "@storybook/addon-options": "^4.1.4",
     "@storybook/addon-viewport": "^4.1.1",
     "@storybook/addons": "^4.1.1",
     "@storybook/react": "^4.1.1",

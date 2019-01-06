@@ -20,9 +20,17 @@ describe('Button component', () => {
 		const component = mount(
 			<Button onClick={callback}/>
 		)
-		console.log(component.debug())
 
 		component.find('button').simulate('click')
 		expect(callback).toBeCalled()
+	})
+
+	it('should render button with classname', () => {
+		const component = mount(
+			<Button onClick={jest.fn()} classes={'className1'}/>
+		)
+		const element = component.find('button')
+
+		expect(element.hasClass('className1')).toBeTruthy()
 	})
 })
