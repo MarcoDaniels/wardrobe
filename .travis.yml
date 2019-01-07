@@ -5,11 +5,10 @@ node_js:
 notifications:
   email: false
 
-stages:
-  - name: deploy
-    # require the branch name to be master (note for PRs this is the base branch name)
-    if: branch = master
-      - echo "Master"
+branches:
+  only:
+    - master
+    - echo "Master branch"
 
 script:
   - echo "Deploying!"
