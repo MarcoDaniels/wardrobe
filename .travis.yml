@@ -1,8 +1,16 @@
 language: node_js
 node_js:
   - "10.7"
+
 notifications:
   email: false
+
+stages:
+  - name: deploy
+    # require the branch name to be master (note for PRs this is the base branch name)
+    if: branch = master
+      - echo "Master"
+
 script:
   - echo "Deploying!"
 install:
@@ -11,12 +19,6 @@ install:
 after_success:
   - echo "Deploy"
 
-# install dependencies
-
-# run tests
-
 # build storybook
-
 # deploy storybook to firebase/ghPages
-
 # deploy package to npm
