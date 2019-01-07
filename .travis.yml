@@ -5,19 +5,22 @@ node_js:
 notifications:
   email: false
 
+# push to branches only trigger on master (merge pr)
 branches:
   only:
     - master
-    - echo "Master branch"
 
-script:
-  - echo "Deploying!"
+# install, test & build
 install:
   - yarn
   - yarn test
-after_success:
-  - echo "Deploy"
+  - yarn build
 
-# build storybook
-# deploy storybook to firebase/ghPages
-# deploy package to npm
+# deploy storybook to firebase when merging pr
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+  project: $FIREBASE_PROJECT_ID
+  on:
+    branch: master
