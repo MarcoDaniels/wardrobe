@@ -35,7 +35,9 @@
   ],
   "exclude": [
     "node_modules",
+    "coverage",
     "lib",
+    "build",
     "storybook"
   ]
 }
