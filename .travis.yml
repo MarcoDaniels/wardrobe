@@ -19,6 +19,7 @@ install:
 # deploy storybook to firebase when merging pr
 deploy:
   provider: firebase
+  skip_cleanup: true
   token:
     secure: $FIREBASE_TOKEN
   project: $FIREBASE_PROJECT_ID
