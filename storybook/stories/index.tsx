@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { text, boolean,  } from '@storybook/addon-knobs/react'
+import { text, boolean, number, color, select } from '@storybook/addon-knobs/react'
 import { Link, Button } from '../../src'
+import { IconWrapper } from '../../src/components/IconWrapper'
+import { facebook, rss } from '../../src/components/IconList'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -30,3 +32,17 @@ storiesOf('Components', module)
 			{text('content', 'click me')}
 		</Button>
 	))
+	.add('Icons', () => {
+		const icons: any = {
+			rss: rss,
+			facebook: facebook,
+		}
+
+		return (
+			<IconWrapper
+				icon={select('icon', icons, rss as any)} // because
+				color={color('color', '#000')}
+				size={number('size', 100)}
+			/>
+		)
+	})
