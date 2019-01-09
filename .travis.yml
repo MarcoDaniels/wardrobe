@@ -18,10 +18,10 @@ install:
 
 # deploy: storybook to firebase, library to npm.js
 deploy:
-    provider: npm
-    email: $NPM_EMAIL
-    api_key: $NPM_TOKEN
+  - provider: firebase
+    token:
+      secure: $FIREBASE_TOKEN
+    project: $FIREBASE_PROJECT_ID
     skip_cleanup: true
-      on:
-        tags: true
-        branch: master
+    on:
+      branch: master
