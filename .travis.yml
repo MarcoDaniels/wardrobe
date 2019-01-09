@@ -16,12 +16,19 @@ install:
   - yarn test
   - yarn build
 
-# deploy storybook to firebase when merging pr
+# deploy: storybook to firebase, library to npm.js
 deploy:
-  provider: firebase
-  skip_cleanup: true
-  token:
-    secure: $FIREBASE_TOKEN
-  project: $FIREBASE_PROJECT_ID
-  on:
-    branch: master
+  - provider: firebase
+    token:
+      secure: $FIREBASE_TOKEN
+    project: $FIREBASE_PROJECT_ID
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: master

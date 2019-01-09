@@ -1,9 +1,9 @@
 .idea
 
+build/
 coverage/
 src/
 storybook/
-test/
 
 jest.setup.js
 tsconfig.json
