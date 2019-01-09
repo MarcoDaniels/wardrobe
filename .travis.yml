@@ -9,6 +9,7 @@ notifications:
 branches:
   only:
     - master
+    - /v\d+\.\d+[a-z]/
 
 # install, test & build
 install:
