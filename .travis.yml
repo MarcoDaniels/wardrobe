@@ -20,17 +20,17 @@ install:
 # - storybook to firebase when merging pr
 # - library to npm.js when merging pr
 deploy:
-  - provider: firebase
-    skip_cleanup: true
-    token:
-      secure: $FIREBASE_TOKEN
-    project: $FIREBASE_PROJECT_ID
+- provider: firebase
+  skip_cleanup: true
+  token:
+    secure: $FIREBASE_TOKEN
+  project: $FIREBASE_PROJECT_ID
+  on:
+    branch: master
+- provider: npm
+  skip_cleanup: true
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
     on:
+      tags: true
       branch: master
-  - provider: npm
-    skip_cleanup: true
-    email: $NPM_EMAIL
-    api_key: $NPM_TOKEN
-      on:
-        tags: true
-        branch: master
