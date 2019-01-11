@@ -14,7 +14,11 @@ branches:
 # install & test
 install:
   - yarn
-  - yarn test
+
+# build for deployment
+before_deploy:
+  - yarn build:storybook
+  - yarn build:library
 
 # deploy: storybook to firebase, library to npm.js
 deploy:
