@@ -23,8 +23,6 @@ before_deploy:
 # deploy: storybook to firebase, library to npm.js
 deploy:
   - provider: firebase
-    script:
-      - yarn build:storybook
     token:
       secure: $FIREBASE_TOKEN
     project: $FIREBASE_PROJECT_ID
@@ -32,8 +30,6 @@ deploy:
     on:
       branch: master
   - provider: npm
-    script:
-      - yarn build:library
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
     skip_cleanup: true
