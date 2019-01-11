@@ -8,8 +8,10 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "dev": "start-storybook -p 6006 -c storybook/config",
-    "build": "rm -rf build/ && build-storybook -c storybook/config -o build/",
-    "test": "jest"
+    "build:storybook": "rm -rf build/ && build-storybook -c storybook/config -o build/",
+    "build:library": "rm -rf lib/ tsc --pretty",
+    "test:ci": "jest --collectCoverage=false",
+    "test:dev": "jest --collectCoverage=false"
   },
   "jest": {
     "setupFiles": [
