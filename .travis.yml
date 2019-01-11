@@ -11,9 +11,10 @@ branches:
     - master
     - /v\d+\.\d+\.\d+/
 
-# install, test
+# install & test
 install:
   - yarn
+  - yarn test
 
 # deploy: storybook to firebase, library to npm.js
 deploy:
