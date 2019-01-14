@@ -1,6 +1,6 @@
-import { Icon } from './IconWrapper'
+import { IconType } from './Icon'
 
-export const rss: Icon = {
+export const rss: IconType = {
 	name: 'rss',
 	draw: 'M576 1344q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm512 123q2 28-17 48-18 21-47 ' +
 		'21h-135q-25 0-43-16.5t-20-41.5q-22-229-184.5-391.5t-391.5-184.5q-25-2-41.5-20t-16.5-43v-135q0-29 21-47 17-17 ' +
@@ -9,7 +9,7 @@ export const rss: Icon = {
 		'20-46 18-18 44-18h3q262 13 501.5 120t425.5 294q187 186 294 425.5t120 501.5z'
 }
 
-export const facebook: Icon = {
+export const facebook: IconType = {
 	name: 'facebook',
 	draw: 'M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 ' +
 		'104-288.5t277-102.5q147 0 228 12z'

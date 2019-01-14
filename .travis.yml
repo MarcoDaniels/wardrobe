@@ -19,6 +19,8 @@ install:
 before_deploy:
   - yarn build:storybook
   - yarn build:library
+  - cp package.json lib/
+  - cd lib
 
 # deploy: storybook to firebase, library to npm.js
 deploy:
