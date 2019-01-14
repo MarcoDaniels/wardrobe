@@ -6,6 +6,7 @@ src/
 storybook/
 
 jest.setup.js
+firebase.json
 tsconfig.json
 tslint.json
 yarn.lock

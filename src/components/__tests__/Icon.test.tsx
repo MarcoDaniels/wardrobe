@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { Icon, IconWrapper } from '../IconWrapper'
+import { IconType, Icon } from '../Icon'
 
-const icon: Icon = {
+const icon: IconType = {
 	name: 'test icon name',
 	draw: 'draw data'
 }
 
-describe('Icon wrapper component', () => {
+describe('IconType wrapper component', () => {
 	it('should mount icon', () => {
 		const component = mount(
-			<IconWrapper icon={icon} color={'blue'} size={10}/>
+			<Icon icon={icon} color={'blue'} size={10}/>
 		)
 
 		const svg = component.find('svg')
@@ -27,7 +27,7 @@ describe('Icon wrapper component', () => {
 
 	it('should mount icon with custom name and class', () => {
 		const component = mount(
-			<IconWrapper
+			<Icon
 				icon={icon}
 				color={'orange'}
 				size={100}

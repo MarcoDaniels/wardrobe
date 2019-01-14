@@ -4,8 +4,6 @@
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
   "license": "MIT",
   "version": "0.0.1",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "start-storybook -p 6006 -c storybook/config",
     "build:storybook": "rm -rf build/ && build-storybook -c storybook/config -o build/",
