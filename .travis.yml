@@ -16,15 +16,16 @@ install:
   - yarn
 
 # build for deployment
-before_deploy:
-  - yarn build:storybook
-  - yarn build:library
-  - cp package.json lib/
-  - cd lib
+#before_deploy:
+#  - yarn build:storybook
+#  - yarn build:library
+#  - cp package.json lib/
+#  - cd lib
 
 # deploy: storybook to firebase, library to npm.js
 deploy:
   - provider: firebase
+    script: yarn build:firebase
     token:
       secure: $FIREBASE_TOKEN
     project: $FIREBASE_PROJECT_ID
@@ -32,6 +33,7 @@ deploy:
     on:
       branch: master
   - provider: npm
+    script: yarn build:library && cp package.json lib/ && cd lib
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
     skip_cleanup: true
