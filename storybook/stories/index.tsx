@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { text, boolean, number, color, select } from '@storybook/addon-knobs/react'
 import { Link, Button } from '../../src'
 import { Icon } from '../../src/components/Icon'
-import { facebook, rss } from '../../src/components/Icons'
+import * as Icons from '../../src/components/Icons'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -33,14 +33,9 @@ storiesOf('Components', module)
 		</Button>
 	))
 	.add('Icons', () => {
-		const icons: any = {
-			rss: rss,
-			facebook: facebook,
-		}
-
 		return (
 			<Icon
-				icon={select('icon', icons, rss as any)} // because
+				icon={select('icon', Icons, Icons.user as any)} // because
 				color={color('color', '#000')}
 				size={number('size', 100)}
 			/>
