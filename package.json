@@ -1,7 +1,8 @@
 {
   "name": "marcodaniels-wardrobe",
-  "description": "A wardrobe of React.js components for marcodaniels projects.",
+  "description": "A collection of React.js components for marcodaniels projects.",
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
+  "homepage": "https://wardrobe.marcodaniels.com",
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +10,7 @@
     "build:storybook": "rm -rf build/ && build-storybook -c storybook/config -o build/",
     "build:library": "rm -rf lib/ && tsc --pretty",
     "test": "jest --collectCoverage=false",
+    "test:coveralls": "jest && cat ./coverage/lcov.info | coveralls",
     "test:coverage": "jest"
   },
   "jest": {
@@ -51,6 +53,7 @@
     "@types/styled-components": "^4.1.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
+    "coveralls": "^3.0.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",
