@@ -38,6 +38,7 @@ storiesOf('Components', module)
 				icon={select('icon', Icons, Icons.user as any)} // because
 				color={color('color', '#000')}
 				size={number('size', 100)}
+				spinning={boolean('spinning', false)}
 			/>
 		)
 	})

@@ -1,15 +1,16 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { IconType, Icon } from '../Icon'
 
 const icon: IconType = {
 	name: 'test icon name',
+	viewBox: 'sizes',
 	draw: 'draw data'
 }
 
-describe('IconType wrapper component', () => {
-	it('should mount icon', () => {
-		const component = mount(
+describe('Icon component', () => {
+	it('should check for icon properties', () => {
+		const component = shallow(
 			<Icon icon={icon} color={'blue'} size={10}/>
 		)
 
@@ -25,8 +26,8 @@ describe('IconType wrapper component', () => {
 		expect(path.prop('d')).toBe(icon.draw)
 	})
 
-	it('should mount icon with custom name and class', () => {
-		const component = mount(
+	it('should check for icon properties with custom name and class', () => {
+		const component = shallow(
 			<Icon
 				icon={icon}
 				color={'orange'}
@@ -47,5 +48,19 @@ describe('IconType wrapper component', () => {
 		const path = svg.find('path')
 		expect(path.prop('fill')).toBe('orange')
 		expect(path.prop('d')).toBe(icon.draw)
+	})
+
+	it('should check for icon properties and spinning action', () => {
+		const component = shallow(
+			<Icon icon={icon} color={'red'} size={10} spinning={true}/>
+		)
+
+		const svg = component.find('svg')
+		expect(svg.prop('height')).toBe(10)
+		expect(svg.prop('width')).toBe(10)
+
+		const animation = component.find('animateTransform')
+		expect(animation).toBeDefined()
+		expect(animation.prop('type')).toBe('rotate')
 	})
 })
