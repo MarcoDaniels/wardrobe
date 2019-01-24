@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { text, boolean, number, color, select } from '@storybook/addon-knobs/react'
+import { text, boolean, number, color, select } from '@storybook/addon-knobs'
 import { Link, Button } from '../../src'
 import { Icon } from '../../src/components/Icon'
 import * as Icons from '../../src/components/Icons'
+import { Overlay } from '../../src/components/Overlay'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -40,5 +41,15 @@ storiesOf('Components', module)
 				size={number('size', 100)}
 				spinning={boolean('spinning', false)}
 			/>
+		)
+	})
+	.add('Overlay', () => {
+		return (
+			<div>
+				{text('background', 'background content')}
+				<Overlay show={boolean('show', false)}>
+					{text('overlay', 'overlay content')}
+				</Overlay>
+			</div>
 		)
 	})
