@@ -1,8 +1,8 @@
 # wardrobe
 
 [![Build Status](https://travis-ci.org/MarcoDaniels/wardrobe.svg?branch=master)](https://travis-ci.org/MarcoDaniels/wardrobe)
-[![Coverage Status](https://coveralls.io/repos/github/MarcoDaniels/wardrobe/badge.svg)](https://coveralls.io/github/MarcoDaniels/wardrobe)
-
+[![Coverage Status](https://coveralls.io/repos/github/MarcoDaniels/wardrobe/badge.svg?branch=master)](https://coveralls.io/github/MarcoDaniels/wardrobe
+)
 > _A component library of React.js components for [marcodaniels](https://marcodaniels.com) projects._
 
 ## Documentation
