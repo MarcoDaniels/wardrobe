@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export type propTypes = {
 	show: boolean
-	children: any
 }
 
 const StyledModal = styled.div`
