@@ -14,27 +14,19 @@ branches:
 # install & test
 install:
   - yarn
+
+after_success:
   - yarn test:coveralls
 
-# build for deployment
-before_deploy:
-  - yarn build:storybook
-  - yarn build:library
-  - cp package.json lib/
-
-# deploy: storybook to firebase, library to npm.js
+# deploy
 deploy:
-  - provider: firebase
-    token:
-      secure: $FIREBASE_TOKEN
-    project: $FIREBASE_PROJECT_ID
+  - provider: script
+    script: bash scripts/deploy_storybook.sh $FIREBASE_PROJECT_ID $FIREBASE_TOKEN
     skip_cleanup: true
     on:
       branch: master
-  - provider: npm
-    email: $NPM_EMAIL
-    api_key: $NPM_TOKEN
-    upload-dir: lib/
+  - provider: script
+    script: bash scripts/deploy_library.sh
     skip_cleanup: true
     on:
       tags: true

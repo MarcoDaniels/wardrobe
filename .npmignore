@@ -2,6 +2,7 @@
 
 build/
 coverage/
+scripts/
 src/
 storybook/
 
