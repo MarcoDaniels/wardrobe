@@ -15,7 +15,7 @@ interface Props {
 	classes?: string
 }
 
-export const Icon: React.FunctionComponent<Props> = props => {
+export const IconWrapper: React.FunctionComponent<Props> = props => {
 	const { icon, color, size, title, classes, spinning } = props
 
 	return (

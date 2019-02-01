@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number, color, select } from '@storybook/addon-knobs'
-import { Link, Button } from '../../src'
-import { Icon } from '../../src/components/Icon'
-import * as Icons from '../../src/components/Icons'
-import { Overlay } from '../../src/components/Overlay'
+import { Link, Button, Overlay } from '../../src'
+import { IconWrapper } from '../../src/icons/IconWrapper'
+import * as Icons from '../../src/icons'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -13,6 +12,18 @@ storiesOf('MarcoDaniels', module)
 			<p>Here you can find React.js components for my personal projects</p>
 		</div>
 	))
+
+storiesOf('Icons', module)
+	.add('Icons', () => {
+		return (
+			<IconWrapper
+				icon={select('icon', Icons, Icons.user as any)} // because
+				color={color('color', '#000')}
+				size={number('size', 100)}
+				spinning={boolean('spinning', false)}
+			/>
+		)
+	})
 
 storiesOf('Components', module)
 	.add('Link', () => (
@@ -33,16 +44,6 @@ storiesOf('Components', module)
 			{text('content', 'click me')}
 		</Button>
 	))
-	.add('Icons', () => {
-		return (
-			<Icon
-				icon={select('icon', Icons, Icons.user as any)} // because
-				color={color('color', '#000')}
-				size={number('size', 100)}
-				spinning={boolean('spinning', false)}
-			/>
-		)
-	})
 	.add('Overlay', () => {
 		return (
 			<div>
