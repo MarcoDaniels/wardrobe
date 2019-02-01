@@ -1,17 +1,15 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import { Link } from '../Link'
 
 describe('Link component', () => {
 	it('should render link with props and data', () => {
-		const component = mount(
-			<Link link={'marcodaniels.com'} isActive={false}>
+		const component = shallow(
+			<Link href={'marcodaniels.com'}>
 				link text
 			</Link>
 		)
-
-		expect(component.prop('isActive')).toBe(false)
 
 		const element = component.find('a')
 
@@ -20,21 +18,19 @@ describe('Link component', () => {
 	})
 
 	it('should render link with class', () => {
-		const component = mount(
-			<Link link={''} isActive={true} classes={'class1'}/>
+		const component = shallow(
+			<Link href={''} classes={'class1'}/>
 		)
 
 		expect(component.find('a').hasClass('class1')).toBeTruthy()
 	})
 
 	it('should render link with props and data in new tab', () => {
-		const component = mount(
-			<Link link={'marcodaniels.com'} isActive={true} newTab={true}>
+		const component = shallow(
+			<Link href={'marcodaniels.com'} openNewTab={true}>
 				link text
 			</Link>
 		)
-
-		expect(component.prop('isActive')).toBe(true)
 
 		const element = component.find('a')
 
@@ -44,8 +40,8 @@ describe('Link component', () => {
 	})
 
 	it('should render link in new tab with class', () => {
-		const component = mount(
-			<Link link={''} isActive={true} newTab={true} classes={'class2'}/>
+		const component = shallow(
+			<Link href={''} openNewTab={true} classes={'class2'}/>
 		)
 
 		expect(component.find('a').hasClass('class2')).toBeTruthy()

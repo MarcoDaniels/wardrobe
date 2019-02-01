@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { Overlay } from '../Overlay'
 
 describe('Overlay component', () => {
 	it('should show overlay content', () => {
-		const component = shallow(
-			<Overlay show={true}>
+		const component = mount(
+			<Overlay active={true}>
 				<p>show overlay content</p>
 			</Overlay>
 		)
@@ -15,8 +15,8 @@ describe('Overlay component', () => {
 	})
 
 	it('should not show overlay content', () => {
-		const component = shallow(
-			<Overlay show={false}>
+		const component = mount(
+			<Overlay active={false}>
 				<p>show overlay content</p>
 			</Overlay>
 		)

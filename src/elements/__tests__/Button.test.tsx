@@ -33,4 +33,14 @@ describe('Button component', () => {
 
 		expect(element.hasClass('className1')).toBeTruthy()
 	})
+
+	it('should render button disabled', () => {
+		const component = mount(
+			<Button onClick={jest.fn()} disabled={true}/>
+		)
+
+		const element = component.find('button')
+
+		expect(element.prop('disabled')).toBeTruthy()
+	})
 })

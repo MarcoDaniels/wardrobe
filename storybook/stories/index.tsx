@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number, color, select } from '@storybook/addon-knobs'
-import { Link, Button, Overlay } from '../../src'
+import { Button, Link, Overlay } from '../../src'
 import { IconWrapper } from '../../src/icons/IconWrapper'
 import * as Icons from '../../src/icons'
 
@@ -9,7 +9,12 @@ storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
 		<div className={'storybook'}>
 			<h2>Welcome to MarcoDaniel's wardrobe</h2>
-			<p>Here you can find React.js components for my personal projects</p>
+			<p>
+				This project is a component
+				library of React.js components for <Link
+				href={'https://marcodaniels.com'}
+				openNewTab={true}>MarcoDaniels</Link> projects.
+			</p>
 		</div>
 	))
 
@@ -26,31 +31,31 @@ storiesOf('Icons', module)
 	})
 
 storiesOf('Components', module)
-	.add('Link', () => (
-		<Link
-			link={text('link', 'https://marcodaniels.com')}
-			isActive={boolean('active', false)}
-			newTab={boolean('newTab', false)}
-			classes={text('classes', 'storybook')}
-		>
-			{text('content', 'this is a link')}
-		</Link>
-	))
 	.add('Button', () => (
 		<Button
 			onClick={() => console.log('click')}
+			disabled={boolean('disabled', false)}
 			classes={text('classes', 'storybook')}
 		>
 			{text('content', 'click me')}
 		</Button>
 	))
+	.add('Link', () => (
+		<Link
+			href={text('href', 'https://marcodaniels.com')}
+			classes={text('classes', 'storybook')}
+			openNewTab={boolean('newTab', false)}
+		>
+			{text('content', 'this is a link')}
+		</Link>
+	))
 	.add('Overlay', () => {
 		return (
-			<div>
-				{text('background', 'background content')}
-				<Overlay show={boolean('show', false)}>
-					{text('overlay', 'overlay content')}
+			<React.Fragment>
+				<p>this is background content</p>
+				<Overlay active={boolean('active', false)}>
+					{text('overlay content', 'overlay content')}
 				</Overlay>
-			</div>
+			</React.Fragment>
 		)
 	})
