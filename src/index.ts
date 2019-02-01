@@ -1,7 +1,9 @@
-import { Link } from './components/Link'
-import { Button } from './components/Button'
+import { Link } from './elements/Link'
+import { Button } from './elements/Button'
+import { Overlay } from './elements/Overlay'
 
 export {
 	Link,
-	Button
+	Button,
+	Overlay
 }

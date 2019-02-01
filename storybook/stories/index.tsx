@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number, color, select } from '@storybook/addon-knobs'
-import { Link, Button } from '../../src'
-import { Wrapper } from '../../src/icons/Wrapper'
+import { Link, Button, Overlay } from '../../src'
+import { IconWrapper } from '../../src/icons/IconWrapper'
 import * as Icons from '../../src/icons'
-import { Overlay } from '../../src/components/Overlay'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -17,7 +16,7 @@ storiesOf('MarcoDaniels', module)
 storiesOf('Icons', module)
 	.add('Icons', () => {
 		return (
-			<Wrapper
+			<IconWrapper
 				icon={select('icon', Icons, Icons.user as any)} // because
 				color={color('color', '#000')}
 				size={number('size', 100)}

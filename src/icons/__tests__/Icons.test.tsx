@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { IconType, Wrapper } from '../Wrapper'
+import { IconType, IconWrapper } from '../IconWrapper'
 import * as Icons from '../'
 
 const icon: IconType = {
@@ -9,10 +9,10 @@ const icon: IconType = {
 	draw: 'draw data'
 }
 
-describe('Wrapper component', () => {
+describe('IconWrapper component', () => {
 	it('should check for icon properties', () => {
 		const component = shallow(
-			<Wrapper icon={icon} color={'blue'} size={10}/>
+			<IconWrapper icon={icon} color={'blue'} size={10}/>
 		)
 
 		const svg = component.find('svg')
@@ -29,7 +29,7 @@ describe('Wrapper component', () => {
 
 	it('should check for icon properties with custom name and class', () => {
 		const component = shallow(
-			<Wrapper
+			<IconWrapper
 				icon={icon}
 				color={'orange'}
 				size={100}
@@ -53,7 +53,7 @@ describe('Wrapper component', () => {
 
 	it('should check for icon properties and spinning action', () => {
 		const component = shallow(
-			<Wrapper icon={icon} color={'red'} size={10} spinning={true}/>
+			<IconWrapper icon={icon} color={'red'} size={10} spinning={true}/>
 		)
 
 		const svg = component.find('svg')
