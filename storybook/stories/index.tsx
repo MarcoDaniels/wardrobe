@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number, color, select } from '@storybook/addon-knobs'
-import { Link, Button, Overlay } from '../../src'
+import { Button, Link, Overlay } from '../../src'
 import { IconWrapper } from '../../src/icons/IconWrapper'
 import * as Icons from '../../src/icons'
 
@@ -26,6 +26,15 @@ storiesOf('Icons', module)
 	})
 
 storiesOf('Components', module)
+	.add('Button', () => (
+		<Button
+			onClick={() => console.log('click')}
+			disabled={boolean('disabled', false)}
+			classes={text('classes', 'storybook')}
+		>
+			{text('content', 'click me')}
+		</Button>
+	))
 	.add('Link', () => (
 		<Link
 			link={text('link', 'https://marcodaniels.com')}
@@ -35,14 +44,6 @@ storiesOf('Components', module)
 		>
 			{text('content', 'this is a link')}
 		</Link>
-	))
-	.add('Button', () => (
-		<Button
-			onClick={() => console.log('click')}
-			classes={text('classes', 'storybook')}
-		>
-			{text('content', 'click me')}
-		</Button>
 	))
 	.add('Overlay', () => {
 		return (
