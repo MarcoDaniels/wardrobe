@@ -37,10 +37,9 @@ storiesOf('Components', module)
 	))
 	.add('Link', () => (
 		<Link
-			link={text('link', 'https://marcodaniels.com')}
-			isActive={boolean('active', false)}
-			newTab={boolean('newTab', false)}
+			href={text('href', 'https://marcodaniels.com')}
 			classes={text('classes', 'storybook')}
+			openNewTab={boolean('newTab', false)}
 		>
 			{text('content', 'this is a link')}
 		</Link>

@@ -1,41 +1,30 @@
 import * as React from 'react'
-import styled from 'styled-components'
 
 interface Props {
-	link: string
-	isActive: boolean
-	newTab?: boolean
+	href: string
 	classes?: string
+	openNewTab?: boolean
 }
 
-const StyledLink = styled.a<{ isActive: boolean }>`
-    color: ${props => props.isActive ? 'red' : 'blue'};
-`
-
 export const Link: React.FunctionComponent<Props> = props => {
-	const {children, isActive, link, classes, newTab} = props
+	const {href, classes, openNewTab, children} = props
 
-	if (newTab) {
+	if (openNewTab) {
 		return (
-			<StyledLink
-				href={link}
-				isActive={isActive}
+			<a
+				href={href}
 				className={classes ? classes : ''}
 				target={'_blank'}
 				rel={'noopener noreferrer'}
 			>
 				{children}
-			</StyledLink>
+			</a>
 		)
 	}
 
 	return (
-		<StyledLink
-			href={link}
-			isActive={isActive}
-			className={classes ? classes : ''}
-		>
+		<a href={href} className={classes ? classes : ''}>
 			{children}
-		</StyledLink>
+		</a>
 	)
 }
