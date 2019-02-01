@@ -2,10 +2,11 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 export type propTypes = {
-	show: boolean
+	active: boolean
 }
 
-const StyledModal = styled.div`
+const StyledOverlay = styled.div<{ active: boolean }>`
+	display: ${props => props.active ? 'block' : 'none'};
 	position: fixed;
     top: 0;
     bottom: 0;
@@ -17,16 +18,12 @@ const StyledModal = styled.div`
     z-index: 1;
 `
 
-export const Overlay: React.FunctionComponent<propTypes> = props =>  {
-	const {show, children} = props
-
-	if (!show) {
-		return null
-	}
+export const Overlay: React.FunctionComponent<propTypes> = props => {
+	const {active, children} = props
 
 	return (
-		<StyledModal>
+		<StyledOverlay active={active}>
 			{children}
-		</StyledModal>
+		</StyledOverlay>
 	)
 }

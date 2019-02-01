@@ -9,7 +9,12 @@ storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
 		<div className={'storybook'}>
 			<h2>Welcome to MarcoDaniel's wardrobe</h2>
-			<p>Here you can find React.js components for my personal projects</p>
+			<p>
+				This project is a component
+				library of React.js components for <Link
+				href={'https://marcodaniels.com'}
+				openNewTab={true}>MarcoDaniels</Link> projects.
+			</p>
 		</div>
 	))
 
@@ -46,11 +51,11 @@ storiesOf('Components', module)
 	))
 	.add('Overlay', () => {
 		return (
-			<div>
-				{text('background', 'background content')}
-				<Overlay show={boolean('show', false)}>
-					{text('overlay', 'overlay content')}
+			<React.Fragment>
+				<p>this is background content</p>
+				<Overlay active={boolean('active', false)}>
+					{text('overlay content', 'overlay content')}
 				</Overlay>
-			</div>
+			</React.Fragment>
 		)
 	})
