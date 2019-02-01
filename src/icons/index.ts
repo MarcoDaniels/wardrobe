@@ -1,4 +1,4 @@
-import { IconType } from './Icon'
+import { IconType } from './Wrapper'
 
 export const user: IconType = {
 	name: 'user',

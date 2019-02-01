@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { IconType, Icon } from '../Icon'
+import { IconType, Wrapper } from '../Wrapper'
+import * as Icons from '../'
 
 const icon: IconType = {
 	name: 'test icon name',
@@ -8,10 +9,10 @@ const icon: IconType = {
 	draw: 'draw data'
 }
 
-describe('Icon component', () => {
+describe('Wrapper component', () => {
 	it('should check for icon properties', () => {
 		const component = shallow(
-			<Icon icon={icon} color={'blue'} size={10}/>
+			<Wrapper icon={icon} color={'blue'} size={10}/>
 		)
 
 		const svg = component.find('svg')
@@ -28,7 +29,7 @@ describe('Icon component', () => {
 
 	it('should check for icon properties with custom name and class', () => {
 		const component = shallow(
-			<Icon
+			<Wrapper
 				icon={icon}
 				color={'orange'}
 				size={100}
@@ -52,7 +53,7 @@ describe('Icon component', () => {
 
 	it('should check for icon properties and spinning action', () => {
 		const component = shallow(
-			<Icon icon={icon} color={'red'} size={10} spinning={true}/>
+			<Wrapper icon={icon} color={'red'} size={10} spinning={true}/>
 		)
 
 		const svg = component.find('svg')
@@ -62,5 +63,16 @@ describe('Icon component', () => {
 		const animation = component.find('animateTransform')
 		expect(animation).toBeDefined()
 		expect(animation.prop('type')).toBe('rotate')
+	})
+
+	it('should check all icons have base properties', () => {
+		const Icon = Icons as Object;
+		for (const key in Icon) {
+			if (Icon.hasOwnProperty(key)) {
+				expect(Icon[key]).toHaveProperty('name')
+				expect(Icon[key]).toHaveProperty('viewBox')
+				expect(Icon[key]).toHaveProperty('draw')
+			}
+		}
 	})
 })
