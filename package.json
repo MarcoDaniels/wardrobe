@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "start-storybook -p 6006 -c storybook/config",
     "build:storybook": "rm -rf build/ && build-storybook -c storybook/config -o build/",
-    "build:library": "rm -rf lib/ && tsc --pretty",
+    "build:library": "rm -rf lib/ && tsc --p tsconfig.prod.json --pretty",
     "test": "jest --collectCoverage=false",
     "test:coveralls": "jest && cat ./coverage/lcov.info | coveralls",
     "test:coverage": "jest"
