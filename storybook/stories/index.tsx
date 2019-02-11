@@ -4,6 +4,7 @@ import { text, boolean, number, color, select } from '@storybook/addon-knobs'
 import { Button, Link, Overlay } from '../../src'
 import { IconWrapper } from '../../src/icons/IconWrapper'
 import * as Icons from '../../src/icons'
+import { withInfo } from '@storybook/addon-info'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -19,6 +20,7 @@ storiesOf('MarcoDaniels', module)
 	))
 
 storiesOf('Icons', module)
+	.addDecorator(withInfo)
 	.add('Icons', () => {
 		return (
 			<IconWrapper
@@ -31,6 +33,7 @@ storiesOf('Icons', module)
 	})
 
 storiesOf('Components', module)
+	.addDecorator(withInfo)
 	.add('Button', () => (
 		<Button
 			onClick={() => console.log('click')}
