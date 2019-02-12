@@ -9,6 +9,10 @@ interface Props {
 
 const StyledButton = styled.button<{ disabled: boolean }>`
 	${props => props.disabled ? 'disabled: true' : ''};
+    border-color: #000;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
 `
 
 export const Button: React.FunctionComponent<Props> = props => {

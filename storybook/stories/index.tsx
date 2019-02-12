@@ -5,6 +5,7 @@ import { Button, Link, Overlay } from '../../src'
 import { IconWrapper } from '../../src/icons/IconWrapper'
 import * as Icons from '../../src/icons'
 import { withInfo } from '@storybook/addon-info'
+import Modal from '../../src/elements/Modal'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -54,11 +55,15 @@ storiesOf('Components', module)
 	))
 	.add('Overlay', () => {
 		return (
-			<React.Fragment>
-				<p>this is background content</p>
-				<Overlay active={boolean('active', false)}>
-					{text('overlay content', 'overlay content')}
-				</Overlay>
-			</React.Fragment>
+			<Overlay active={boolean('active', false)}>
+				{text('overlay content', 'overlay content')}
+			</Overlay>
+		)
+	})
+	.add('Modal', () => {
+		return (
+			<Modal active={true} closeButton={boolean('show close button', true)}>
+				{text('modal content', 'modal content')}
+			</Modal>
 		)
 	})
