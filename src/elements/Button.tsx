@@ -5,24 +5,28 @@ interface Props {
 	onClick: any
 	disabled?: boolean
 	classes?: string
+	classesOverride?: boolean
 }
 
-const StyledButton = styled.button<{ disabled: boolean }>`
+const StyledButton = styled.button<{ disabled: boolean, classesOverride: boolean }>`
 	${props => props.disabled ? 'disabled: true' : ''};
-    border-color: #000;
-    border-radius: 5px;
     display: flex;
     cursor: pointer;
+    ${props => !props.classesOverride && `
+    border-color: #000;
+    border-radius: 5px;
+    `}
 `
 
 export const Button: React.FunctionComponent<Props> = props => {
-	const {onClick, disabled, classes, children} = props
+	const {onClick, disabled, classes, classesOverride, children} = props
 
 	return (
 		<StyledButton
 			onClick={onClick}
 			disabled={disabled ? disabled : false}
 			className={classes ? classes : ''}
+			classesOverride={classesOverride ? classesOverride : false}
 		>
 			{children}
 		</StyledButton>

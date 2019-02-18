@@ -43,4 +43,14 @@ describe('Button component', () => {
 
 		expect(element.prop('disabled')).toBeTruthy()
 	})
+
+	it('should render button with override classes', () => {
+		const component = mount(
+			<Button onClick={jest.fn()} classesOverride={true} classes={'className3'}/>
+		)
+
+		const element = component.find('button')
+
+		expect(element.hasClass('className3')).toBeTruthy()
+	})
 })

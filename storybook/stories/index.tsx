@@ -42,6 +42,7 @@ storiesOf('Elements', module)
 			onClick={() => console.log('click')}
 			disabled={boolean('disabled', false)}
 			classes={text('classes', 'storybook')}
+			classesOverride={boolean('classes override', false)}
 		>
 			{text('content', 'click me')}
 		</Button>
