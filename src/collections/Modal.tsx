@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Overlay } from './Overlay'
 import styled from 'styled-components'
-import { Button } from './Button'
+import { Overlay } from '../elements/Overlay'
+import { Button } from '../elements/Button'
 import { IconWrapper } from '../icons/IconWrapper'
 import { times } from '../icons'
 
@@ -14,7 +14,7 @@ const StyledOuterModal = styled.div`
 
 const StyledModal = styled.div`
 	background-color: #fff;
-	padding: 5px 10px;
+	padding: 10px;
 	border-radius: 10px;
 	width: 80%;
 	height: 80%;
@@ -32,12 +32,18 @@ const StyledModalContent = styled.div`
 interface Props {
 	active: boolean
 	closeButton: boolean
+	contentClasses?: string
 }
 
 interface State {
 	active: boolean
 }
 
+/**
+ * TODO:
+ * ModalContent Classes
+ * Close callback
+ */
 export class Modal extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props)
@@ -67,7 +73,7 @@ export class Modal extends React.Component<Props, State> {
 								</Button>
 							)}
 						</StyledModalHeader>
-						<StyledModalContent>
+						<StyledModalContent className={this.props.contentClasses ? this.props.contentClasses : ''}>
 							{this.props.children}
 						</StyledModalContent>
 					</StyledModal>

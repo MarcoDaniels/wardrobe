@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number, color, select } from '@storybook/addon-knobs'
-import { Button, Link, Overlay } from '../../src'
+import { Link } from '../../src/elements/Link'
+import { Button } from '../../src/elements/Button'
+import { Overlay } from '../../src/elements/Overlay'
 import { IconWrapper } from '../../src/icons/IconWrapper'
 import * as Icons from '../../src/icons'
 import { withInfo } from '@storybook/addon-info'
-import Modal from '../../src/elements/Modal'
+import Modal from '../../src/collections/Modal'
 
 storiesOf('MarcoDaniels', module)
 	.add('wardrobe', () => (
@@ -33,7 +35,7 @@ storiesOf('Icons', module)
 		)
 	})
 
-storiesOf('Components', module)
+storiesOf('Elements', module)
 	.addDecorator(withInfo)
 	.add('Button', () => (
 		<Button
@@ -60,9 +62,16 @@ storiesOf('Components', module)
 			</Overlay>
 		)
 	})
+
+storiesOf('Collections', module)
+	.addDecorator(withInfo)
 	.add('Modal', () => {
 		return (
-			<Modal active={true} closeButton={boolean('show close button', true)}>
+			<Modal
+				active={true}
+				closeButton={boolean('show close button', true)}
+				contentClasses={text('classes', 'storybook')}
+			>
 				{text('modal content', 'modal content')}
 			</Modal>
 		)
