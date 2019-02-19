@@ -1,9 +1,15 @@
-export function setCookie(name: string, value: string, expirationDays: number) {
+export interface CookieType {
+	name: string
+	value: string
+	expirationDays: number
+}
+
+export function setCookie(cookie: CookieType) {
 	const date = new Date()
 
-	date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000))
+	date.setTime(date.getTime() + (cookie.expirationDays * 24 * 60 * 60 * 1000))
 
-	document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/'
+	document.cookie = cookie.name + '=' + cookie.value + '; expires=' + date.toUTCString() + '; path=/'
 }
 
 export function getCookie(name: string) {

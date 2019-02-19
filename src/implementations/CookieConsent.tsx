@@ -27,7 +27,12 @@ export class CookieConsent extends React.Component<Props, State> {
 	}
 
 	acceptConsent = (): void => {
-		setCookie(this.props.cookieName, this.props.cookieValue, this.props.expirationDays)
+		setCookie({
+			name: this.props.cookieName,
+			value: this.props.cookieValue,
+			expirationDays: this.props.expirationDays
+		})
+
 		this.setState({
 			accepted: this.hasConsent()
 		})
