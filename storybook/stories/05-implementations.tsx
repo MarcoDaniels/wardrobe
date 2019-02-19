@@ -12,6 +12,8 @@ storiesOf('Implementations', module)
 				cookieName={text('cookie name', 'consent')}
 				cookieValue={text('cookie value', 'true')}
 				expirationDays={number('expiration days', 1)}
-			/>
+			>
+				{text('content', 'we have cookies')}
+			</CookieConsent>
 		)
 	})

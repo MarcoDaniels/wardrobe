@@ -42,7 +42,7 @@ export class CookieConsent extends React.Component<Props, State> {
 		return (
 			<React.Fragment>
 				<Modal active={!this.state.accepted} closeButton={false}>
-					<p>we have cookies!</p>
+					{this.props.children}
 					<Button onClick={this.acceptConsent}>
 						accept
 					</Button>
