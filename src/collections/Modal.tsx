@@ -39,11 +39,6 @@ interface State {
 	active: boolean
 }
 
-/**
- * TODO:
- * ModalContent Classes
- * Close callback
- */
 export class Modal extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props)
@@ -58,7 +53,7 @@ export class Modal extends React.Component<Props, State> {
 
 	render() {
 		return (
-			<Overlay active={this.state.active}>
+			<Overlay active={this.props.active}>
 				<StyledOuterModal>
 					<StyledModal>
 						<StyledModalHeader>
