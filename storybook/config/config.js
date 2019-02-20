@@ -1,6 +1,6 @@
 import {configure, addDecorator} from '@storybook/react';
 import {configureViewport, INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
-import {withKnobs} from '@storybook/addon-knobs/react';
+import {withKnobs} from '@storybook/addon-knobs';
 import {withOptions} from '@storybook/addon-options';
 import {withConsole} from '@storybook/addon-console';
 
