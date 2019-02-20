@@ -32,50 +32,36 @@ const StyledModalContent = styled.div`
 interface Props {
 	active: boolean
 	closeButton: boolean
+	closeButtonCallback?(): void
 	contentClasses?: string
 }
 
-interface State {
-	active: boolean
-}
+export const Modal: React.FunctionComponent<Props> = props => {
+	const { active, closeButton, closeButtonCallback, contentClasses, children } = props
 
-export class Modal extends React.Component<Props, State> {
-	constructor(props: Props) {
-		super(props)
-		this.state = {
-			active: this.props.active
-		}
-	}
-
-	closeModal = () => {
-		this.setState({active: false})
-	}
-
-	render() {
-		return (
-			<Overlay active={this.props.active}>
-				<StyledOuterModal>
-					<StyledModal>
-						<StyledModalHeader>
-							{this.props.closeButton && (
-								<Button onClick={this.closeModal}>
-									<IconWrapper
-										icon={times}
-										color={'#000'}
-										size={20}
-										title={'close'}
-									/>
-								</Button>
-							)}
-						</StyledModalHeader>
-						<StyledModalContent className={this.props.contentClasses ? this.props.contentClasses : ''}>
-							{this.props.children}
-						</StyledModalContent>
-					</StyledModal>
-				</StyledOuterModal>
-			</Overlay>
-		)
-	}
+	return (
+		<Overlay active={active}>
+			<StyledOuterModal>
+				<StyledModal>
+					<StyledModalHeader>
+						{closeButton && (
+							<Button onClick={closeButtonCallback}>
+								<IconWrapper
+									icon={times}
+									color={'#000'}
+									size={20}
+									title={'close'}
+								/>
+							</Button>
+						)}
+					</StyledModalHeader>
+					<StyledModalContent className={contentClasses ? contentClasses : ''}>
+						{children}
+					</StyledModalContent>
+				</StyledModal>
+			</StyledOuterModal>
+		</Overlay>
+	)
 }
 
 export default Modal
