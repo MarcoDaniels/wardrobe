@@ -33,16 +33,18 @@ describe('Modal component', () => {
 		expect(component.find('button')).not.toBeFalsy()
 	})
 
-	it('should show modal and close it', () => {
+	it('should show modal and click close button', () => {
+		const clickClose = jest.fn()
+
 		const component = mount(
-			<Modal active={true} closeButton={true}>
+			<Modal active={true} closeButton={true} closeButtonCallback={clickClose}>
 				<p>this is content</p>
 			</Modal>
 		)
 
 		component.find('button').simulate('click')
 
-		expect(component.find('p')).not.toBeFalsy()
+		expect(clickClose).toHaveBeenCalled()
 	})
 
 	it('should show modal with custom classes', () => {

@@ -7,10 +7,13 @@ import Modal from '../../src/collections/Modal'
 storiesOf('Collections', module)
 	.addDecorator(withInfo)
 	.add('Modal', () => {
+
+		let active = true
 		return (
 			<Modal
-				active={true}
+				active={boolean('active', active)}
 				closeButton={boolean('show close button', true)}
+				closeButtonCallback={() => console.log('close it')}
 				contentClasses={text('classes', 'storybook')}
 			>
 				{text('modal content', 'modal content')}
