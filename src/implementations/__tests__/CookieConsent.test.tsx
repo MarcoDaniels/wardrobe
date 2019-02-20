@@ -44,6 +44,6 @@ describe('Cookie Consent Component', () => {
 
 		component.find('button').simulate('click')
 
-		expect(component.find('p')).not.toBeFalsy()
+		expect(document.cookie).toContain('consent=true')
 	})
 })
