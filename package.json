@@ -4,7 +4,11 @@
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
   "homepage": "https://wardrobe.marcodaniels.com",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcoDaniels/wardrobe.git"
+  },
   "scripts": {
     "dev": "start-storybook -p 6006 -c storybook/config",
     "build:storybook": "rm -rf build/ && build-storybook -c storybook/config -o build/",

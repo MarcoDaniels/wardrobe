@@ -15,19 +15,42 @@ branches:
 install:
   - yarn
 
-after_success:
-  - yarn test:coveralls
-
 # deploy
-deploy:
-  - provider: script
-    script: bash scripts/deploy_storybook.sh $FIREBASE_PROJECT_ID $FIREBASE_TOKEN
-    skip_cleanup: true
-    on:
-      branch: master
-  - provider: script
-    script: bash scripts/deploy_library.sh
-    skip_cleanup: true
-    on:
-      tags: true
-      all_branches: true
+jobs:
+  include:
+    # run tests
+    - stage: test
+      script:
+        - yarn test
+    # run tests for coverage
+    - stage: test coverage
+      if: branch = master
+      script:
+        - yarn test:coveralls
+    # deploy storybook to firebase
+    - stage: deploy to firebase
+      if: branch = master
+      script:
+        - yarn build:storybook
+      deploy:
+        provider: firebase
+        token:
+          secure: $FIREBASE_TOKEN
+        project: $FIREBASE_PROJECT_ID
+        skip_cleanup: true
+        on:
+          branch: master
+    # deploy library to npm
+    - stage: deploy to npm
+      script:
+        - yarn build:library
+        - cp package.json lib/
+        - cd lib/
+      deploy:
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
+          all_branches: true
