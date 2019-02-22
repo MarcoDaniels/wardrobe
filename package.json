@@ -35,8 +35,12 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "<rootDir>/src/**",
+      "!<rootDir>/src/**.snap",
       "!<rootDir>/src/index.ts",
-      "!<rootDir>/src/**.snap"
+      "!<rootDir>/src/elements/index.ts",
+      "!<rootDir>/src/collections/index.ts",
+      "!<rootDir>/src/implementations/index.ts",
+      "!<rootDir>/src/functions/index.ts"
     ]
   },
   "dependencies": {
