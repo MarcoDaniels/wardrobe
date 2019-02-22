@@ -27,3 +27,5 @@ export const Overlay: React.FunctionComponent<propTypes> = props => {
 		</StyledOverlay>
 	)
 }
+
+export default Overlay

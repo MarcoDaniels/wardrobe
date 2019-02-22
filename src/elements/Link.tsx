@@ -28,3 +28,5 @@ export const Link: React.FunctionComponent<Props> = props => {
 		</a>
 	)
 }
+
+export default Link

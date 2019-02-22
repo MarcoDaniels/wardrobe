@@ -32,3 +32,5 @@ export const Button: React.FunctionComponent<Props> = props => {
 		</StyledButton>
 	)
 }
+
+export default Button
