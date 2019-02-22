@@ -45,7 +45,7 @@ jobs:
       if: tag IS present
       script:
         - yarn build:library
-        - cp package.json lib/
+        - cp package.json README.md LICENSE lib/
         - cd lib/
       deploy:
         provider: npm
