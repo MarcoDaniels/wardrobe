@@ -10,12 +10,8 @@ This component library uses Storybook to document all components.
 
 The documentation can be found at [wardrobe.marcodaniels.com](https://wardrobe.marcodaniels.com).
 
-## Usage
-```
-# TODO
-```
-
 ## Development
+The component library runs [Storybook](https://github.com/storybooks/storybook) for component development.
 ```
 # install dependencies
 yarn install
