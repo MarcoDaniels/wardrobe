@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import { boolean, text } from '@storybook/addon-knobs'
+import { boolean, select, text } from '@storybook/addon-knobs'
 import { Button } from '../../src/elements/Button'
 import { Link } from '../../src/elements/Link'
 import { Overlay } from '../../src/elements/Overlay'
+import { Modal, Position } from '../../src/elements/Modal'
 
 storiesOf('Elements', module)
 	.addDecorator(withInfo)
@@ -32,5 +33,12 @@ storiesOf('Elements', module)
 			<Overlay active={boolean('active', false)}>
 				{text('overlay content', 'overlay content')}
 			</Overlay>
+		)
+	})
+	.add('Modal', () => {
+		return (
+			<Modal position={select('position', Position, Position.topLeft as any)}>
+				{text('modal content', 'modal content')}
+			</Modal>
 		)
 	})
