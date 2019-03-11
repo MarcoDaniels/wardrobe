@@ -36,7 +36,7 @@ interface Props {
 	contentClasses?: string
 }
 
-export const Modal: React.FunctionComponent<Props> = props => {
+export const ModalOverlay: React.FunctionComponent<Props> = props => {
 	const { active, closeButton, closeButtonCallback, contentClasses, children } = props
 
 	return (
@@ -64,4 +64,4 @@ export const Modal: React.FunctionComponent<Props> = props => {
 	)
 }
 
-export default Modal
+export default ModalOverlay

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import Modal from '../Modal'
+import { ModalOverlay } from '../ModalOverlay'
 
 describe('Modal component', () => {
 	it('should show modal content', () => {
 		const component = mount(
-			<Modal active={true} closeButton={true}>
+			<ModalOverlay active={true} closeButton={true}>
 				<p>this is modal content</p>
-			</Modal>
+			</ModalOverlay>
 		)
 
 		const element = component.find('p')
@@ -16,7 +16,7 @@ describe('Modal component', () => {
 
 	it('should show modal with close button', () => {
 		const component = mount(
-			<Modal active={true} closeButton={true}/>
+			<ModalOverlay active={true} closeButton={true}/>
 		)
 
 		const button = component.find('button')
@@ -27,7 +27,7 @@ describe('Modal component', () => {
 
 	it('should show modal without close button', () => {
 		const component = mount(
-			<Modal active={true} closeButton={false}/>
+			<ModalOverlay active={true} closeButton={false}/>
 		)
 
 		expect(component.find('button')).not.toBeFalsy()
@@ -37,9 +37,9 @@ describe('Modal component', () => {
 		const clickClose = jest.fn()
 
 		const component = mount(
-			<Modal active={true} closeButton={true} closeButtonCallback={clickClose}>
+			<ModalOverlay active={true} closeButton={true} closeButtonCallback={clickClose}>
 				<p>this is content</p>
-			</Modal>
+			</ModalOverlay>
 		)
 
 		component.find('button').simulate('click')
@@ -49,9 +49,9 @@ describe('Modal component', () => {
 
 	it('should show modal with custom classes', () => {
 		const component = mount(
-			<Modal active={true} closeButton={true} contentClasses={'this-class'}>
+			<ModalOverlay active={true} closeButton={true} contentClasses={'this-class'}>
 				<p>this is content</p>
-			</Modal>
+			</ModalOverlay>
 		)
 
 		const element = component.find('p').parent()

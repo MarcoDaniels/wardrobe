@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Modal from '../collections/Modal'
+import ModalOverlay from '../collections/ModalOverlay'
 import { getCookie, setCookie } from '../functions/Cookie'
 import { Button } from '../elements/Button'
 
@@ -41,12 +41,12 @@ export class CookieConsent extends React.Component<Props, State> {
 	render() {
 		return (
 			<React.Fragment>
-				<Modal active={!this.state.accepted} closeButton={false}>
+				<ModalOverlay active={!this.state.accepted} closeButton={false}>
 					{this.props.children}
 					<Button onClick={this.acceptConsent}>
 						accept
 					</Button>
-				</Modal>
+				</ModalOverlay>
 			</React.Fragment>
 		)
 	}
