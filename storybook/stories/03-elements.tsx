@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import { boolean, color, number, select, text } from '@storybook/addon-knobs'
+import { boolean, select, text } from '@storybook/addon-knobs'
 import { Button, Link, Overlay, ModalBorder, Modal, ModalPosition } from '../../src/elements'
 
 storiesOf('Elements', module)
@@ -37,8 +37,6 @@ storiesOf('Elements', module)
 				active={boolean('active', true)}
 				position={select('position', ModalPosition, ModalPosition.bottomLeft as any)}
 				border={select('border', ModalBorder, ModalBorder.all as any)}
-				borderColor={color('border color', '#000')}
-				borderRadius={number('border radius', 2)}
 				classes={text('classes', 'storybook')}
 			>
 				{text('modal content', 'modal content')}

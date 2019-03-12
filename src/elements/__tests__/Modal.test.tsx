@@ -41,16 +41,12 @@ describe('Modal Component', () => {
 				active={true}
 				position={ModalPosition.bottom}
 				border={ModalBorder.all}
-				borderRadius={10}
-				borderColor={'green'}
 				classes={'this-class'}
 			/>
 		)
 
 		const element = component.find('StyledComponent')
 
-		expect(element.prop('borderRadius')).toBe(10)
-		expect(element.prop('borderColor')).toBe('green')
 		expect(element.hasClass('this-class')).toBeTruthy()
 	})
 })
