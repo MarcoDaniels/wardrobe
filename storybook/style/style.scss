@@ -1,5 +1,5 @@
 $main: #000;
-// TODO: make classes available as select
+
 .storybook {
   font-family: monospace;
 }
@@ -9,6 +9,11 @@ a {
 }
 
 .button-style {
-  border-color: red;
+  border-color: #006600;
   border-radius: 8px;
+}
+
+.modal-style {
+  border: 1px solid #000000;
+  border-radius: 5px;
 }
