@@ -4,7 +4,7 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {withOptions} from '@storybook/addon-options';
 import {withConsole} from '@storybook/addon-console';
 
-import '../style.scss'
+import '../style/style.scss'
 
 // change storybook main page
 addDecorator(

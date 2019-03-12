@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import Modal, { ModalBorder, ModalPosition } from '../Modal'
+import Modal, { ModalPosition } from '../Modal'
 
 describe('Modal Component', () => {
 	it('should mount modal and match children contents', () => {
@@ -8,7 +8,6 @@ describe('Modal Component', () => {
 			<Modal
 				active={true}
 				position={ModalPosition.bottom}
-				border={ModalBorder.all}
 			>
 				<p>modal contents</p>
 			</Modal>
@@ -24,7 +23,6 @@ describe('Modal Component', () => {
 			<Modal
 				active={false}
 				position={ModalPosition.bottom}
-				border={ModalBorder.all}
 			/>
 		)
 
@@ -32,7 +30,6 @@ describe('Modal Component', () => {
 
 		expect(element.prop('active')).toBe(false)
 		expect(element.prop('position')).toBe(ModalPosition.bottom)
-		expect(element.prop('border')).toBe(ModalBorder.all)
 	})
 
 	it('should mount modal and match optional props', () => {
@@ -40,17 +37,12 @@ describe('Modal Component', () => {
 			<Modal
 				active={true}
 				position={ModalPosition.bottom}
-				border={ModalBorder.all}
-				borderRadius={10}
-				borderColor={'green'}
 				classes={'this-class'}
 			/>
 		)
 
 		const element = component.find('StyledComponent')
 
-		expect(element.prop('borderRadius')).toBe(10)
-		expect(element.prop('borderColor')).toBe('green')
 		expect(element.hasClass('this-class')).toBeTruthy()
 	})
 })
