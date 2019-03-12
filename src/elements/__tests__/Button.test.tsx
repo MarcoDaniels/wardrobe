@@ -4,7 +4,7 @@ import { mount } from 'enzyme'
 import { Button } from '../Button'
 
 describe('Button component', () => {
-	it('should render button with props', () => {
+	it('should mount button and match children contents', () => {
 		const component = mount(
 			<Button onClick={jest.fn()}>click me</Button>
 		)
@@ -14,7 +14,7 @@ describe('Button component', () => {
 		expect(element.text()).toBe('click me')
 	})
 
-	it('should trigger callback function', () => {
+	it('should mount button and trigger callback function', () => {
 		const callback = jest.fn()
 
 		const component = mount(
@@ -25,7 +25,7 @@ describe('Button component', () => {
 		expect(callback).toBeCalled()
 	})
 
-	it('should render button with classname', () => {
+	it('should mount button with classname', () => {
 		const component = mount(
 			<Button onClick={jest.fn()} classes={'className1'}/>
 		)
@@ -34,7 +34,7 @@ describe('Button component', () => {
 		expect(element.hasClass('className1')).toBeTruthy()
 	})
 
-	it('should render button disabled', () => {
+	it('should button button with disabled prop', () => {
 		const component = mount(
 			<Button onClick={jest.fn()} disabled={true}/>
 		)
@@ -42,15 +42,5 @@ describe('Button component', () => {
 		const element = component.find('button')
 
 		expect(element.prop('disabled')).toBeTruthy()
-	})
-
-	it('should render button with override classes', () => {
-		const component = mount(
-			<Button onClick={jest.fn()} classesOverride={true} classes={'className3'}/>
-		)
-
-		const element = component.find('button')
-
-		expect(element.hasClass('className3')).toBeTruthy()
 	})
 })

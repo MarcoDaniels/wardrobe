@@ -8,10 +8,9 @@ storiesOf('Elements', module)
 	.addDecorator(withInfo)
 	.add('Button', () => (
 		<Button
-			onClick={() => console.log('click')}
+			onClick={() => console.log('clicked')}
 			disabled={boolean('disabled', false)}
 			classes={text('classes', 'storybook')}
-			classesOverride={boolean('classes override', false)}
 		>
 			{text('content', 'click me')}
 		</Button>
