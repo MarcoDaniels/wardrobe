@@ -4,7 +4,7 @@
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
   "homepage": "https://wardrobe.marcodaniels.com",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/MarcoDaniels/wardrobe.git"
@@ -35,12 +35,7 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "<rootDir>/src/**",
-      "!<rootDir>/src/**.snap",
-      "!<rootDir>/src/index.ts",
-      "!<rootDir>/src/elements/index.ts",
-      "!<rootDir>/src/collections/index.ts",
-      "!<rootDir>/src/implementations/index.ts",
-      "!<rootDir>/src/functions/index.ts"
+      "!<rootDir>/src/**.snap"
     ]
   },
   "dependencies": {
