@@ -73,9 +73,7 @@ export class ModalOverlay extends React.Component<Props, State> {
 						<StyledModal className={this.props.classes ? this.props.classes : ''}>
 							<StyledHeader>
 								<StyledHeaderTitle>
-									<span>
-										{this.props.title}
-									</span>
+									{this.props.title}
 								</StyledHeaderTitle>
 								{this.props.closeButton && (
 									<StyledHeaderClose>
