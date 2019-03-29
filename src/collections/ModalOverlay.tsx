@@ -6,33 +6,42 @@ import { IconWrapper } from '../icons/IconWrapper'
 import { times } from '../icons'
 import { Modal, ModalPosition } from '../elements/Modal'
 
-const StyledOuterModal = styled.div`
-    display: flex;
+const StyledWrapper = styled.div`
+	display: flex;
+    height: 100%;
     align-items: center;
     justify-content: center;
-	width: 80%;
-	height: 80%;
 `
 
 const StyledModal = styled.div`
-	background-color: #fff;
+	background-color: #FFFFFF;
 	padding: 10px;
 	border-radius: 10px;
+	display: grid;
 `
 
-const StyledModalHeader = styled.div`
+const StyledHeader = styled.div`
+	height: 25px;
+    line-height: 25px;
+`
+
+const StyledHeaderTitle = styled.div`
+	float: left;
+	padding-right: 20px;
+`
+
+const StyledHeaderClose = styled.div`
 	float: right;
 `
 
-const StyledModalContent = styled.div`
-	float: left;
-	width: 100%;
+const StyledContent = styled.div`
+	padding: 20px 5px;
 `
 
 interface Props {
-	active: boolean
 	closeButton: boolean
-	contentClasses?: string
+	title: string
+	classes?: string
 }
 
 interface State {
@@ -43,7 +52,7 @@ export class ModalOverlay extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props)
 		this.state = {
-			active: this.props.active
+			active: true
 		}
 	}
 
@@ -54,29 +63,39 @@ export class ModalOverlay extends React.Component<Props, State> {
 	}
 
 	render() {
+		// avoid re-render
+		if (!this.state.active) { return null }
+
 		return (
 			<Overlay active={this.state.active}>
-				<StyledOuterModal>
+				<StyledWrapper>
 					<Modal active={this.state.active} position={ModalPosition.floating}>
-						<StyledModal>
-							<StyledModalHeader>
+						<StyledModal className={this.props.classes ? this.props.classes : ''}>
+							<StyledHeader>
+								<StyledHeaderTitle>
+									<span>
+										{this.props.title}
+									</span>
+								</StyledHeaderTitle>
 								{this.props.closeButton && (
-									<Button onClick={this.handleClose}>
-										<IconWrapper
-											icon={times}
-											color={'#000'}
-											size={20}
-											title={'close'}
-										/>
-									</Button>
+									<StyledHeaderClose>
+										<Button onClick={this.handleClose}>
+											<IconWrapper
+												icon={times}
+												color={'#000'}
+												size={20}
+												title={'close modal'}
+											/>
+										</Button>
+									</StyledHeaderClose>
 								)}
-							</StyledModalHeader>
-							<StyledModalContent className={this.props.contentClasses ? this.props.contentClasses : ''}>
+							</StyledHeader>
+							<StyledContent>
 								{this.props.children}
-							</StyledModalContent>
+							</StyledContent>
 						</StyledModal>
 					</Modal>
-				</StyledOuterModal>
+				</StyledWrapper>
 			</Overlay>
 		)
 	}

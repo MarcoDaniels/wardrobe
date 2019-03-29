@@ -7,16 +7,13 @@ import ModalOverlay from '../../src/collections/ModalOverlay'
 storiesOf('Collections', module)
 	.addDecorator(withInfo)
 	.add('Modal Overlay', () => {
-
-		let active = true
 		return (
 			<ModalOverlay
-				active={boolean('active', active)}
+				title={text('title', 'This modal is awesome')}
 				closeButton={boolean('show close button', true)}
-				closeButtonCallback={() => console.log('close it')}
-				contentClasses={text('classes', 'storybook')}
+				classes={text('classes', 'storybook')}
 			>
-				{text('modal content', 'modal content')}
+				{text('modal content', 'The contents of this modal are awesome')}
 			</ModalOverlay>
 		)
 	})
