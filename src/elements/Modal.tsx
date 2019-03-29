@@ -13,7 +13,8 @@ export enum ModalPosition {
 	topRight = 'top: 0; right: 0;',
 	bottom = 'bottom: 0; right: 0; left: 0;',
 	bottomLeft = 'bottom: 0; left: 0;',
-	bottomRight = 'bottom: 0; right: 0;'
+	bottomRight = 'bottom: 0; right: 0;',
+	floating = ''
 }
 
 const StyledModal = styled.div<{ active: boolean, position: ModalPosition }>`
