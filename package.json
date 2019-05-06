@@ -15,8 +15,11 @@
     "build:library": "rm -rf lib/ && tsc --p tsconfig.prod.json --pretty",
     "test": "jest --collectCoverage=false",
     "test:coveralls": "jest && cat ./coverage/lcov.info | coveralls",
-    "test:coverage": "jest"
+    "test:coverage": "jest",
+    "lint:check": "tslint --project tsconfig.json 'src/**/*.{ts,tsx}'",
+    "lint:fix": "tslint --fix --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
+  "pre-commit": "lint:check",
   "jest": {
     "setupFiles": [
       "<rootDir>/jest.setup.js"
@@ -68,6 +71,7 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",
     "node-sass": "^4.11.0",
+    "pre-commit": "^1.2.2",
     "react-docgen-typescript-loader": "^3.0.1",
     "sass-loader": "^7.1.0",
     "ts-jest": "^23.10.5",
