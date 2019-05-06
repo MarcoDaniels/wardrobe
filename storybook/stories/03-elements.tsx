@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { boolean, select, text } from '@storybook/addon-knobs'
-import { Button, Link, Overlay, Modal, ModalPosition } from '../../src/elements'
+import { Button, Link, Overlay, Modal, ModalPosition, Navigation } from '../../src/elements'
 import { classes } from '../style/style'
 
 storiesOf('Elements', module)
@@ -41,5 +41,21 @@ storiesOf('Elements', module)
 			>
 				{text('modal content', 'modal content')}
 			</Modal>
+		)
+	})
+	.add('Navigation', () => {
+		const temp = () => {
+			return [
+				<a href={''}>1.1</a>,
+				<a href={''}>1.2</a>
+			]
+		}
+
+		return (
+			<Navigation quickLinks={temp()}>
+				<a href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+			</Navigation>
 		)
 	})
