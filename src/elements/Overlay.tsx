@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-export type propTypes = {
+export interface OverlayProps {
 	active: boolean
 }
 
@@ -18,7 +18,7 @@ const StyledOverlay = styled.div<{ active: boolean }>`
     z-index: 1;
 `
 
-export const Overlay: React.FunctionComponent<propTypes> = props => {
+export const Overlay: React.FunctionComponent<OverlayProps> = props => {
 	const {active, children} = props
 
 	return (

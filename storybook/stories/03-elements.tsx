@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+// import { withInfo } from '@storybook/addon-info'
 import { boolean, select, text } from '@storybook/addon-knobs'
-import { Button, Link, Overlay, Modal, ModalPosition } from '../../src/elements'
+import { Button, Link, Overlay, Modal, ModalPosition, Navigation } from '../../src/elements'
 import { classes } from '../style/style'
 
 storiesOf('Elements', module)
-	.addDecorator(withInfo)
+	// .addDecorator(withInfo)
 	.add('Button', () => (
 		<Button
 			onClick={() => console.log('clicked')}
@@ -41,5 +41,30 @@ storiesOf('Elements', module)
 			>
 				{text('modal content', 'modal content')}
 			</Modal>
+		)
+	})
+	.add('Navigation', () => {
+		const quickLinks = () => {
+			return [
+				<a href={'#'}>sm</a>,
+				<a href={'#'}>rss</a>
+			]
+		}
+
+		return (
+			<>
+				<Navigation quickLinks={quickLinks()}>
+					<a href="#">Home</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
+				</Navigation>
+				<div style={{paddingTop: '40px'}}>
+					{/*  */}
+					<p>1 lots and lots of content</p>
+					<p>2 lots and lots of content</p>
+					<p>3 lots and lots of content</p>
+					<p>4 lots and lots of content</p>
+				</div>
+			</>
 		)
 	})
