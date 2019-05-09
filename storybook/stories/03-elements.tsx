@@ -6,7 +6,7 @@ import { Button, Link, Overlay, Modal, ModalPosition, Navigation } from '../../s
 import { classes } from '../style/style'
 
 storiesOf('Elements', module)
-	.addDecorator(withInfo)
+	// .addDecorator(withInfo)
 	.add('Button', () => (
 		<Button
 			onClick={() => console.log('clicked')}
@@ -52,10 +52,20 @@ storiesOf('Elements', module)
 		}
 
 		return (
-			<Navigation quickLinks={temp()}>
-				<a href="#">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-			</Navigation>
+			<>
+				<Navigation quickLinks={temp()}>
+					<a href="#">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+				</Navigation>
+				<div style={{paddingTop: '40px'}}>
+					{/*  */}
+					<p>1 lots and lots of content</p>
+					<p>2 lots and lots of content</p>
+					<p>3 lots and lots of content</p>
+					<p>4 lots and lots of content</p>
+					<p>5 lots and lots of content</p>
+				</div>
+			</>
 		)
 	})
