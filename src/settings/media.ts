@@ -6,7 +6,7 @@ const sizes = {
 	desktop: 1224
 }
 
-class ThemeInterface {
+interface ThemeInterface {
 }
 
 export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
@@ -19,5 +19,5 @@ export const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(
 
 		return acc
 	},
-	{} as { [key in keyof typeof sizes]: ThemedCssFunction<ThemeInterface> },
+	{} as { [key in keyof typeof sizes]: ThemedCssFunction<ThemeInterface> }
 )

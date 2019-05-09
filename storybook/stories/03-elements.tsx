@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
+// import { withInfo } from '@storybook/addon-info'
 import { boolean, select, text } from '@storybook/addon-knobs'
 import { Button, Link, Overlay, Modal, ModalPosition, Navigation } from '../../src/elements'
 import { classes } from '../style/style'
@@ -44,19 +44,19 @@ storiesOf('Elements', module)
 		)
 	})
 	.add('Navigation', () => {
-		const temp = () => {
+		const quickLinks = () => {
 			return [
-				<a href={''}>1.1</a>,
-				<a href={''}>1.2</a>
+				<a href={'#'}>sm</a>,
+				<a href={'#'}>rss</a>
 			]
 		}
 
 		return (
 			<>
-				<Navigation quickLinks={temp()}>
-					<a href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
+				<Navigation quickLinks={quickLinks()}>
+					<a href="#">Home</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
 				</Navigation>
 				<div style={{paddingTop: '40px'}}>
 					{/*  */}
@@ -64,7 +64,6 @@ storiesOf('Elements', module)
 					<p>2 lots and lots of content</p>
 					<p>3 lots and lots of content</p>
 					<p>4 lots and lots of content</p>
-					<p>5 lots and lots of content</p>
 				</div>
 			</>
 		)

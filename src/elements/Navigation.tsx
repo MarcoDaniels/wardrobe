@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
-import { media } from '../settings/media'
 
 interface ChildElement {
 	children: React.ReactNode
@@ -10,8 +9,8 @@ interface NavigationProps {
 	children: Array<React.ReactElement<ChildElement>>
 	quickLinks?: Array<React.ReactElement<ChildElement>>
 	navClasses?: string
-	mainListClasses?: string
-	secondListClasses?: string
+	listClasses?: string
+	quickLinksClasses?: string
 }
 
 const StyledNavContent = styled.div`
@@ -21,20 +20,11 @@ const StyledNavContent = styled.div`
 `
 
 const StyledNav = styled.nav`
-	${media.phone`
-		background-color: red;
-	`};
-	${media.tablet`
-		background-color: blue;
-	`};
-	${media.desktop`
-		background-color: pink;
-	`};
 	border-bottom: 1px solid #000;
     background-color: white;
+    
     text-align: -webkit-center;
 	position: fixed;
-    z-index: 1030;
     right: 0;
     left: 0;
 	top: 0;
@@ -62,16 +52,16 @@ function createListElements(children: Array<React.ReactElement<ChildElement>>) {
 }
 
 export const Navigation: FunctionComponent<NavigationProps> = props => {
-	const {children, quickLinks, navClasses, mainListClasses, secondListClasses} = props
+	const {children, quickLinks, navClasses, listClasses, quickLinksClasses} = props
 
 	return (
 		<StyledNav className={navClasses ? navClasses : ''}>
 			<StyledNavContent>
-				<StyledUnorderedList className={mainListClasses ? mainListClasses : ''}>
+				<StyledUnorderedList className={listClasses ? listClasses : ''}>
 					{createListElements(children)}
 				</StyledUnorderedList>
 				{quickLinks && (
-					<StyledUnorderedList className={secondListClasses ? secondListClasses : ''}>
+					<StyledUnorderedList className={quickLinksClasses ? quickLinksClasses : ''}>
 						{createListElements(quickLinks)}
 					</StyledUnorderedList>
 				)}
