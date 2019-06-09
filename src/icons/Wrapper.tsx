@@ -1,10 +1,5 @@
 import * as React from 'react'
-
-export interface IconType {
-	name: string
-	draw: string
-	viewBox: string
-}
+import { IconType } from './Type'
 
 interface Props {
 	icon: IconType
@@ -15,7 +10,7 @@ interface Props {
 	classes?: string
 }
 
-export const IconWrapper: React.FunctionComponent<Props> = props => {
+export const Wrapper: React.FunctionComponent<Props> = props => {
 	const { icon, color, size, title, classes, spinning } = props
 
 	return (
