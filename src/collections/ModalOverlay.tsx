@@ -2,8 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Overlay } from '../elements/Overlay'
 import { Button } from '../elements/Button'
-import { IconWrapper } from '../icons/IconWrapper'
-import { times } from '../icons'
+import { Wrapper } from '../icons/Wrapper'
+import { Icons } from '../icons'
 import { Modal, ModalPosition } from '../elements/Modal'
 
 const StyledWrapper = styled.div`
@@ -78,8 +78,8 @@ export class ModalOverlay extends React.Component<Props, State> {
 								{this.props.closeButton && (
 									<StyledHeaderClose>
 										<Button onClick={this.handleClose}>
-											<IconWrapper
-												icon={times}
+											<Wrapper
+												icon={Icons.cross}
 												color={'#000'}
 												size={20}
 												title={'close modal'}
