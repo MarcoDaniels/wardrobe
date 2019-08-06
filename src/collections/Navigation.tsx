@@ -1,4 +1,4 @@
-import React, { Children, FC, ReactElement, ReactNode } from 'react'
+import React, { Children, FC, ReactElement, ReactNode, useState } from 'react'
 import styled from 'styled-components'
 import { Wrapper } from '../icons/Wrapper'
 import { burger } from '../icons/data/Directions'
@@ -15,7 +15,6 @@ interface NavigationProps {
 
 interface ListElements {
 	children: Array<ReactElement<ChildElement>>
-
 	onClick(): void
 }
 
@@ -83,37 +82,34 @@ function createListElements({children, onClick}: ListElements) {
 }
 
 export const Navigation: FC<NavigationProps> = ({expand, brandLink, children}) => {
-	// const [drawerOpen, showDrawer] = useState(false)
+	const [drawerOpen, showDrawer] = useState(false)
 
 	const closeDrawer = () => {
-		console.log('clicked')
-		// if (drawerOpen) {
-		// showDrawer(false)
-		// }
+		if (drawerOpen) {
+			showDrawer(false)
+		}
 	}
 
 	return (
-		<>
-			<Nav>
-				<NavWrapper>
-					<NavHeader>
-						<BaseList>
-							<ListItems onClick={closeDrawer}>
-								{brandLink}
-							</ListItems>
-						</BaseList>
-					</NavHeader>
-					<ExpandButton onClick={() => console.log('show it')}>
-						<Wrapper icon={burger} color={'#000'} size={17}/>
-					</ExpandButton>
-					<NavContent show={expand}>
-						<BaseList>
-							{createListElements({children, onClick: closeDrawer})}
-						</BaseList>
-					</NavContent>
-				</NavWrapper>
-			</Nav>
-		</>
+		<Nav>
+			<NavWrapper>
+				<NavHeader>
+					<BaseList>
+						<ListItems onClick={closeDrawer}>
+							{brandLink}
+						</ListItems>
+					</BaseList>
+				</NavHeader>
+				<ExpandButton onClick={closeDrawer}>
+					<Wrapper icon={burger} color={'#000'} size={17}/>
+				</ExpandButton>
+				<NavContent show={expand}>
+					<BaseList>
+						{createListElements({children, onClick: closeDrawer})}
+					</BaseList>
+				</NavContent>
+			</NavWrapper>
+		</Nav>
 	)
 }
 
