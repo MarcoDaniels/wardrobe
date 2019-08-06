@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { boolean, color, number, select } from '@storybook/addon-knobs'
