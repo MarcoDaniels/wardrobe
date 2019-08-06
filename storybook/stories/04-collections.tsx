@@ -1,11 +1,10 @@
-import * as React from 'react'
+import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
 import { boolean, text } from '@storybook/addon-knobs'
-import ModalOverlay from '../../src/collections/ModalOverlay'
+import { ModalOverlay } from '../../src/collections/ModalOverlay'
+import Navigation from '../../src/collections/Navigation'
 
 storiesOf('Collections', module)
-	.addDecorator(withInfo)
 	.add('Modal Overlay', () => {
 		return (
 			<ModalOverlay
@@ -15,5 +14,15 @@ storiesOf('Collections', module)
 			>
 				{text('modal content', 'The contents of this modal are awesome')}
 			</ModalOverlay>
+		)
+	})
+	.add('Navigation', () => {
+		const brand = () => <a href="#">home</a>
+
+		return (
+			<Navigation expand={boolean('expand', false)} brandLink={brand()}>
+				<a href="#">About</a>
+				<a href="#">Contact</a>
+			</Navigation>
 		)
 	})

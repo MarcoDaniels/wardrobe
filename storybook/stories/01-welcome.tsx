@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Link } from '../../src/elements/Link'
 import { whyDidYouUpdate } from 'why-did-you-update'

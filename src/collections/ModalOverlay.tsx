@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Overlay } from '../elements/Overlay'
 import { Button } from '../elements/Button'

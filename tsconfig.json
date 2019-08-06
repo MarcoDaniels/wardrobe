@@ -2,13 +2,11 @@
   "compilerOptions": {
     "outDir": "lib",
     "module": "esnext",
-    "target": "esnext",
+    "target": "es5",
     "lib": [
-      "es5",
-      "es6",
-      "es7",
-      "es2017",
-      "dom"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
     "sourceMap": true,
     "esModuleInterop": true,
@@ -32,13 +30,12 @@
     "experimentalDecorators": true
   },
   "include": [
-    "src/**/*"
+    "src"
   ],
   "exclude": [
     "node_modules",
     "coverage",
     "lib",
-    "build",
-    "storybook"
+    "build"
   ]
 }
