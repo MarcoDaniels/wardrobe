@@ -1,29 +1,17 @@
-import {configure, addDecorator} from '@storybook/react';
-import {configureViewport, INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
+import {configure, addDecorator, addParameters} from '@storybook/react';
 import {withKnobs} from '@storybook/addon-knobs';
-import {withOptions} from '@storybook/addon-options';
 import {withConsole} from '@storybook/addon-console';
 
-import '../style/style.scss'
-
 // change storybook main page
-addDecorator(
-    withOptions({
-        name: `wardrobe`,
-        url: 'https://github.com/MarcoDaniels/wardrobe',
-        showAddonPanel: true,
-        goFullScreen: false,
-        enableShortcuts: false
-    })
-);
-
-// viewport adapt
-configureViewport({
-    viewports: {
-        ...INITIAL_VIEWPORTS
+addParameters(
+    {
+        options: {
+            name: `wardrobe`,
+            url: 'https://github.com/MarcoDaniels/wardrobe',
+            showAddonPanel: true
+        }
     }
-});
-
+);
 // props values
 addDecorator(withKnobs);
 

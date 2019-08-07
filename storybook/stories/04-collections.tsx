@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { boolean, text } from '@storybook/addon-knobs'
 import { ModalOverlay } from '../../src/collections/ModalOverlay'
-import Navigation from '../../src/collections/Navigation'
+import { Navigation } from '../../src/collections/Navigation'
 
 storiesOf('Collections', module)
 	.add('Modal Overlay', () => {
