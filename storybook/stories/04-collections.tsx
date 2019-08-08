@@ -17,10 +17,10 @@ storiesOf('Collections', module)
 		)
 	})
 	.add('Navigation', () => {
-		const brand = () => <a href="#">home</a>
+		const brand = () => <a href="#">Home</a>
 
 		return (
-			<Navigation expand={boolean('expand', false)} brandLink={brand()}>
+			<Navigation brandLink={brand()}>
 				<a href="#">About</a>
 				<a href="#">Contact</a>
 			</Navigation>
