@@ -1,20 +1,22 @@
 import React, { Children, FC, ReactElement, ReactNode, useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Wrapper } from '../icons/Wrapper'
-import { burger } from '../icons/data/Directions'
+import { burger, cross } from '../icons/data/Directions'
+import { media } from '../settings/media'
+import { Overlay } from '../elements/Overlay'
 
 interface ChildElement {
 	children: ReactNode
 }
 
 interface NavigationProps {
-	expand: boolean
 	brandLink: ReactNode
 	children: Array<ReactElement<ChildElement>>
 }
 
 interface ListElements {
 	children: Array<ReactElement<ChildElement>>
+
 	onClick(): void
 }
 
@@ -34,17 +36,28 @@ const NavWrapper = styled.div`
 	max-width: 1200px;
     margin: auto;
     display: contents;
+    ${media.tablet`
+		display: block;
+	`};
 `
 
 const NavHeader = styled.div`
 	float: left;
 `
 
-const NavContent = styled.div<{show: boolean}>`
-	display: ${props => props.show ? 'block' : 'none'};
+const NavContent = styled.div<{ show: boolean }>`
+	display: none;
 	margin-top: 51px;
 	padding-bottom: 5px;
 	background-color: white;
+	${props => props.show && css`display: block;`};
+	${media.tablet`
+		margin-top: 0;
+	 	background-color: transparent;
+		justify-content: space-between;
+		display: flex;
+		padding-top: 15px;
+	`};
 `
 
 const BaseList = styled.ul`
@@ -58,8 +71,14 @@ const BaseListItem = styled.li`
 	padding: 0;
 `
 
-const ListItems = styled(BaseListItem)`
+const BrandListItem = styled(BaseListItem)`
 	padding: 15px 10px;
+`
+
+const ListItems = styled(BrandListItem)`
+	${media.tablet`
+		display: inline;
+	`};
 `
 
 const ExpandButton = styled.button`
@@ -71,6 +90,9 @@ const ExpandButton = styled.button`
 	border-radius: 6px;
 	border-color: #000000;
 	background-color: #ffffff;
+	${media.tablet`
+		display: none;
+	`};
 `
 
 function createListElements({children, onClick}: ListElements) {
@@ -81,7 +103,7 @@ function createListElements({children, onClick}: ListElements) {
 		))
 }
 
-export const Navigation: FC<NavigationProps> = ({expand, brandLink, children}) => {
+export const Navigation: FC<NavigationProps> = ({brandLink, children}) => {
 	const [drawerOpen, showDrawer] = useState(false)
 
 	const closeDrawer = () => {
@@ -91,25 +113,28 @@ export const Navigation: FC<NavigationProps> = ({expand, brandLink, children}) =
 	}
 
 	return (
-		<Nav>
-			<NavWrapper>
-				<NavHeader>
-					<BaseList>
-						<ListItems onClick={closeDrawer}>
-							{brandLink}
-						</ListItems>
-					</BaseList>
-				</NavHeader>
-				<ExpandButton onClick={closeDrawer}>
-					<Wrapper icon={burger} color={'#000'} size={17}/>
-				</ExpandButton>
-				<NavContent show={expand}>
-					<BaseList>
-						{createListElements({children, onClick: closeDrawer})}
-					</BaseList>
-				</NavContent>
-			</NavWrapper>
-		</Nav>
+		<>
+			<Nav>
+				<NavWrapper>
+					<NavHeader>
+						<BaseList>
+							<BrandListItem onClick={closeDrawer}>
+								{brandLink}
+							</BrandListItem>
+						</BaseList>
+					</NavHeader>
+					<ExpandButton onClick={() => showDrawer(!drawerOpen)}>
+						<Wrapper icon={drawerOpen ? cross : burger} color={'#000'} size={17}/>
+					</ExpandButton>
+					<NavContent show={drawerOpen}>
+						<BaseList>
+							{createListElements({children, onClick: closeDrawer})}
+						</BaseList>
+					</NavContent>
+				</NavWrapper>
+			</Nav>
+			<Overlay active={drawerOpen}/>
+		</>
 	)
 }
 
