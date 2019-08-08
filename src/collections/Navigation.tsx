@@ -11,12 +11,11 @@ interface ChildElement {
 
 interface NavigationProps {
 	brandLink: ReactNode
-	children: Array<ReactElement<ChildElement>>
+	children: Array<ReactElement<ChildElement>> | ReactElement<ChildElement>
 }
 
 interface ListElements {
-	children: Array<ReactElement<ChildElement>>
-
+	children: Array<ReactElement<ChildElement>> | ReactElement<ChildElement>
 	onClick(): void
 }
 
@@ -33,9 +32,9 @@ const Nav = styled.nav`
 `
 
 const NavWrapper = styled.div`
+    display: contents;
 	max-width: 1200px;
     margin: auto;
-    display: contents;
     ${media.tablet`
 		display: block;
 	`};
@@ -52,11 +51,11 @@ const NavContent = styled.div<{ show: boolean }>`
 	background-color: white;
 	${props => props.show && css`display: block;`};
 	${media.tablet`
-		margin-top: 0;
-	 	background-color: transparent;
-		justify-content: space-between;
 		display: flex;
+		justify-content: space-between;
+		margin-top: 0;
 		padding-top: 15px;
+	 	background-color: transparent;
 	`};
 `
 
@@ -126,7 +125,7 @@ export const Navigation: FC<NavigationProps> = ({brandLink, children}) => {
 					<ExpandButton onClick={() => showDrawer(!drawerOpen)}>
 						<Wrapper icon={drawerOpen ? cross : burger} color={'#000'} size={17}/>
 					</ExpandButton>
-					<NavContent show={drawerOpen}>
+					<NavContent className={'nav-content'} show={drawerOpen}>
 						<BaseList>
 							{createListElements({children, onClick: closeDrawer})}
 						</BaseList>
